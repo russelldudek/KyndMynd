@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KyndMynd – Brainy Style, Big Heart</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Brainy Style, Big Heart. Every KyndMynd purchase funds mental health awareness.">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html,body{height:100%}
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      height: 100%;
+      font-family: 'Nunito', Arial, sans-serif;
+      background: linear-gradient(125deg,
+        #e7f7ff 0%,
+        #e6f0fa 33%,
+        #f2ecfb 66%,
+        #fce5ed 100%);
+      color: #263982;
+      position: relative;
+      overflow-x: hidden;
+    }
+    #heart-bg{position:fixed;z-index:0;top:0;left:0;width:100vw;height:100vh;pointer-events:none;}
+    .hero{max-width:480px;margin:2.5rem auto 1rem auto;padding:2.2rem 1.1rem 1.2rem 1.1rem;background:#fff9fce8;border-radius:2rem;box-shadow:0 6px 32px 0 rgba(112,146,255,.11);text-align:center;position:relative;z-index:1;}
+    .logo-image{width:64px;height:64px;object-fit:contain;display:block;margin:0 auto 1.2rem auto;background:transparent;}
+    .logo-placeholder{margin-bottom:1.2rem;width:64px;height:64px;background:linear-gradient(120deg,#eaf3fb 60%,#fde7f2 100%);border:2px dashed #badcff;border-radius:1.1em;display:flex;align-items:center;justify-content:center;color:#b6bcd1;font-size:0.98em;font-style:italic;letter-spacing:.01em;}
+    h1{font-family:'Baloo 2',cursive;font-size:2rem;margin:.5rem 0 0 0;color:#263982;}
+    .tag{font-size:1.16rem;color:#ef6f97;font-weight:700;letter-spacing:.04em;}
+    .brand-message{margin:1.25em auto 1.3em auto;background:linear-gradient(110deg,#eaf3fb 80%,#fce6ee 100%);border-radius:1.1em;box-shadow:0 1px 10px 0 rgba(81,111,255,.07);padding:1.1em 1.15em;color:#344e8b;font-size:1.09rem;line-height:1.7;font-weight:600;max-width:375px;}
+    .form-wrap{margin:1.1em 0 .5em 0;}
+    .form{display:flex;gap:.5em;max-width:320px;margin:0 auto;}
+    .form input{flex:1;padding:.7em .9em;border-radius:1em;border:1.3px solid #badcff;font-size:1em;}
+    .form button{background:linear-gradient(92deg,#6bc7ff 0%,#ef6f97 100%);color:#fff;font-weight:700;border:none;border-radius:1em;padding:.7em 1.2em;font-size:1em;cursor:pointer;}
+    .form button:hover{background:linear-gradient(92deg,#ef6f97 0%,#6bc7ff 100%);}
+    #msg{color:#22bb99;font-weight:600;font-size:.98em;min-height:1.4em;margin-top:.6em;}
+    .affirm-outer {
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin:2em auto 1.2em auto;
+      width: 330px;
+      min-height:3.2em;
+      z-index: 2;
+    }
+    .affirm {
+      position:relative;
+      z-index:2;
+      background:#fff;
+      border-radius:1.3em;
+      font-weight:700;
+      padding:1.15em 1.4em;
+      font-size:1.09rem;
+      min-height:3.2em;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      max-width:330px;
+      margin:0 auto;
+      overflow:hidden;
+      transition:min-width .2s;
+      box-sizing: border-box;
+      /* Pastel drop shadow */
+      box-shadow:
+        0 3px 18px 0 #e3e9fd,
+        0 7px 36px 0 #ffeaf3,
+        0 1.5px 6px 0 #cbeafe44;
+    }
+    .affirm > * { position:relative; z-index:2; }
+    .model-image,.model{width:120px;height:155px;border-radius:1.5em;object-fit:cover;box-shadow:0 2px 10px 0 rgba(111,146,255,.08);margin:1.4em auto .4em auto;display:flex;align-items:center;justify-content:center;background:linear-gradient(130deg,#eaf3fb 60%,#fde7f2 100%);color:#d0d2e7;font-weight:700;font-size:.97rem;border:2px dashed #badcff;text-align:center;}
+    .footer-container{
+      max-width:480px;
+      margin:1.3em auto 1.1em auto;
+      background:#f3f4fa;
+      border-radius:1em;
+      box-shadow:0 1.5px 12px 0 rgba(81,111,255,0.07);
+      padding:.7em 1em .68em 1em;
+      text-align:center;
+      position:relative;
+      z-index:1;
+      border:1.2px solid #e2e7f6;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:0.16em;
+    }
+    .footer-quote{
+      font-style:italic;
+      color:#525c7a;
+      font-size:1.07em;
+      letter-spacing:.01em;
+      margin-bottom:0;
+      line-height:1.33;
+      font-weight:600;
+    }
+    .footer-copy{
+      font-size:0.97em;
+      color:#b1aeb5;
+      font-weight:500;
+      margin-top:0.18em;
+      letter-spacing:0.03em;
+    }
+    @media(max-width:600px){
+      .hero{padding:1.1rem .4rem 1.1rem .4rem;max-width:97vw;}
+      .brand-message{font-size:.99rem;padding:.6em .2em;}
+      .affirm-outer{width:97vw; min-width:unset;}
+      .affirm{font-size:.98rem;padding:.7em .4em;min-height:2.6em;max-width:95vw;}
+      .model-image, .model{width:68px;height:86px;font-size:.78rem;}
+      .logo-image,.logo-placeholder{width:42px;height:42px;font-size:.82em;}
+      .footer-container{padding:.59em .16em .52em .16em;max-width:97vw;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Subtle heart particle background -->
+  <canvas id="heart-bg"></canvas>
+  <main class="hero">
+    <!-- LOGO IMAGE PLACEHOLDER: 
+         To use your logo, upload your .jpg file and replace the line below with:
+         <img src="logo.jpg" alt="KyndMynd logo" class="logo-image">
+    -->
+    <img src="logo.jpg" alt="KyndMynd logo" class="logo-image">
+    <h1>KyndMynd</h1>
+    <div class="tag">Brainy Style, Big Heart</div>
+    <div class="brand-message">KyndMynd isn't just apparel—it's a movement. Every design sparks a conversation, every garment spreads hope, and every purchase funds mental health action. 10% of every sale goes directly to organizations creating real change for youth and adults. Wear your values. Fuel the mission. Together, we're making kindness visible—and giving back where it counts.<br><br>Sign up now for early access & exclusive rewards.</div>
+    <div class="form-wrap">
+      <form class="form" autocomplete="off" onsubmit="return handleSignup(event);">
+        <input type="email" id="email" placeholder="your@email.com" required>
+        <button type="submit">Notify Me</button>
+      </form>
+      <div id="msg"></div>
+    </div>
+    <!-- MODEL IMAGE PLACEHOLDER:
+         To use your model image, upload your .jpg file and replace the line below with:
+         <img src="model.jpg" alt="Model wearing KyndMynd" class="model-image">
+    -->
+    <img src="model.jpg" alt="Model wearing KyndMynd" class="model-image">
+    <div class="affirm-outer">
+      <div class="affirm" id="affirmation"></div>
+    </div>
+  </main>
+  <div class="footer-container">
+    <span class="footer-quote">"Wear your heart on your sleeve."</span>
+    <span class="footer-copy">All rights reserved &copy; KyndMynd 2025</span>
+  </div>
+  <script>
+    // Affirmations logic
+    if(!window._affirmations)window._affirmations=[
+      "I am enough, just as I am right now.",
+      "I treat myself with kindness and respect every day.",
+      "I trust in my abilities and my voice matters.",
+      "I believe in super heroes because I am one!",
+      "I am capable of overcoming any challenge.",
+      "I breathe deeply and release all tension from my body.",
+      "I am calm, centered, and in control.",
+      "I am grateful for the abundance in my life.",
+      "I notice the small blessings that brighten my day.",
+      "I take inspired action toward my dreams every day.",
+      "Every challenge I face fuels my determination.",
+      "I choose to see the good in every situation.",
+      "My mind is filled with hopeful and uplifting thoughts.",
+      "I am fully present in this moment.",
+      "Each breath grounds me in the here and now.",
+      "I rise with grace after every setback.",
+      "My spirit is unbreakable and determined.",
+      "Creative ideas flow to me effortlessly.",
+      "Inspiration surrounds me in every moment.",
+      "I show kindness to myself and others every day.",
+      "Small acts of kindness create ripples of change.",
+      "I complete tasks with confidence and ease.",
+      "Distractions fade as I commit to my goals.",
+      "I face my fears with strength and determination.",
+      "Each courageous choice builds my inner power.",
+      "Joy bubbles up from within me effortlessly.",
+      "I choose happiness in every moment.",
+      "I attract loving and supportive relationships.",
+      "I communicate with honesty and compassion.",
+      "I embrace change as a catalyst for growth.",
+      "My life is filled with meaning and intention."
+    ];
+    function showAff(){document.getElementById('affirmation').textContent=window._affirmations[Math.floor(Math.random()*window._affirmations.length)];}
+    showAff();setInterval(showAff,5000);
+    function handleSignup(e){
+      e.preventDefault();
+      var email = document.getElementById('email').value.trim();
+      var msg = document.getElementById('msg');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.style.color = "#e23e57";
+        msg.textContent = "Please enter a valid email address.";
+        return false;
+      }
+      // Compose a mailto link to send the email address
+      var mailto = 'mailto:kynd.mynd@gmail.com?subject=' + encodeURIComponent('KyndMynd Early Access Signup') + '&body=' + encodeURIComponent('Email: ' + email + '\nPlease notify me about KyndMynd early access and rewards!');
+      window.location.href = mailto;
+      msg.style.color = "#22bb99";
+      msg.textContent = "Thank you! Your email app will open to send your signup.";
+      document.getElementById('email').value = '';
+      return false;
+    }
+    // Heart particle logic
+    const canvas=document.getElementById('heart-bg');
+    // Patch: Only declare ctx if not already declared on window
+    if (!window._kyndCtx) {
+      window._kyndCtx = canvas.getContext('2d');
+    }
+    let ctx=window._kyndCtx;
+    let hearts=[];
+    function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+    window.addEventListener('resize',resizeCanvas);resizeCanvas();
+    // Heart shape drawing helper
+    function drawHeart(x,y,size,alpha){
+      ctx.save();ctx.translate(x,y);ctx.scale(size/16,size/16);ctx.globalAlpha=alpha;
+      ctx.beginPath();
+      ctx.moveTo(0,4);
+      ctx.bezierCurveTo(0,-4,16,-4,16,4);
+      ctx.bezierCurveTo(16,14,8,17,0,25);
+      ctx.bezierCurveTo(-8,17,-16,14,-16,4);
+      ctx.bezierCurveTo(-16,-4,0,-4,0,4);
+      ctx.closePath();
+      ctx.fillStyle="#ef6f97";
+      ctx.shadowColor="#ef6f97";
+      ctx.shadowBlur=4;
+      ctx.fill();
+      ctx.restore();
+    }
+    // Create a single heart particle
+    function makeHeart(){
+      const w=canvas.width,h=canvas.height;
+      return {
+        x:Math.random()*w,
+        y:Math.random()*h,
+        size:10+Math.random()*22,
+        alpha:0,
+        life:0,
+        maxLife:80+Math.random()*60
+      }
+    }
+    function animateHearts(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for(let i=hearts.length-1;i>=0;i--){
+        const heart=hearts[i];
+        heart.life++;
+        if(heart.life<heart.maxLife*0.1){
+          heart.alpha=heart.life/(heart.maxLife*0.1); //fade in
+        }else if(heart.life>heart.maxLife*0.9){
+          heart.alpha=1-(heart.life-heart.maxLife*0.9)/(heart.maxLife*0.1); //fade out
+        }else{heart.alpha=1;}
+        drawHeart(heart.x,heart.y,heart.size,heart.alpha*0.16); //subtle
+        if(heart.life>heart.maxLife)hearts.splice(i,1);
+      }
+      // Add new heart randomly (rate limited)
+      if(hearts.length<18 && Math.random()<0.14){
+        hearts.push(makeHeart());
+      }
+      requestAnimationFrame(animateHearts);
+    }
+    for(let i=0;i<10;i++) hearts.push(makeHeart());
+    animateHearts();
+  </script>
+</body>
+</html>
